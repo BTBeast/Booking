@@ -15,4 +15,374 @@
         .app-container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
         .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 2rem; border-radius: 16px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
         .header h1 { color: white; font-size: 2rem; margin-bottom: 0.5rem; font-weight: 700; }
-        .header p { color:
+        .header p { color: rgba(255, 255, 255, 0.8); font-size: 1rem; }
+        .nav-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; background: var(--surface); padding: 0.5rem; border-radius: 12px; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); }
+        .nav-tab { flex: 1; padding: 0.875rem 1.5rem; border: none; background: transparent; color: var(--text-muted); font-size: 0.95rem; font-weight: 500; cursor: pointer; border-radius: 8px; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+        .nav-tab:hover { background: var(--bg); color: var(--text); }
+        .nav-tab.active { background: var(--accent); color: white; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3); }
+        .content-section { background: var(--surface); padding: 2rem; border-radius: 12px; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); }
+        .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--primary); }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        .form-label { font-weight: 500; color: var(--text); font-size: 0.9rem; }
+        .form-input, .form-select { padding: 0.75rem; border: 2px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+        .form-input:focus, .form-select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+        .btn { padding: 0.875rem 1.75rem; border: none; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3); }
+        .btn-secondary { background: var(--bg); color: var(--text); border: 2px solid var(--border); }
+        .btn-secondary:hover { background: var(--border); }
+        .btn-success { background: var(--success); color: white; }
+        .btn-danger { background: var(--danger); color: white; }
+        .settings-card { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 1.5rem; border-radius: 12px; border: 2px solid #bae6fd; margin-bottom: 1.5rem; }
+        .settings-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .settings-item { display: flex; flex-direction: column; }
+        .settings-item-label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+        .settings-item-value { font-weight: 600; color: var(--accent-dark); font-family: 'JetBrains Mono', monospace; }
+        .slots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .slot-card { padding: 1.25rem; border-radius: 10px; border: 2px solid var(--border); transition: all 0.2s; cursor: pointer; }
+        .slot-card:hover { border-color: var(--accent); box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1); transform: translateY(-2px); }
+        .slot-card.available { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-color: #86efac; }
+        .slot-card.booked { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-color: #fcd34d; }
+        .slot-card.blocked { background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); border-color: #fca5a5; cursor: not-allowed; }
+        .slot-date { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--primary); }
+        .slot-time { font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+        .slot-status { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .slot-status.available { background: var(--success); color: white; }
+        .slot-status.booked { background: var(--warning); color: white; }
+        .slot-status.blocked { background: var(--danger); color: white; }
+        .booking-list { display: flex; flex-direction: column; gap: 1rem; }
+        .booking-card { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: all 0.2s; }
+        .booking-card:hover { border-color: var(--accent); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .booking-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; }
+        .booking-candidate { font-weight: 700; font-size: 1.1rem; color: var(--primary); }
+        .booking-ref { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); background: var(--bg); padding: 0.25rem 0.75rem; border-radius: 6px; }
+        .booking-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
+        .booking-detail { display: flex; flex-direction: column; gap: 0.25rem; }
+        .booking-detail-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .booking-detail-value { font-weight: 500; color: var(--text); }
+        .booking-actions { display: flex; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 1rem; }
+        .modal { background: var(--surface); padding: 2rem; border-radius: 16px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        .modal-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--primary); }
+        .modal-actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; justify-content: flex-end; }
+        .alert { padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-weight: 500; }
+        .alert-success { background: #d1fae5; color: #065f46; border: 2px solid #6ee7b7; }
+        .empty-state { text-align: center; padding: 3rem 1rem; color: var(--text-muted); }
+        .empty-state-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.5; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="module">
+        // Import Firebase Functions from the CDN
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // YOUR SPECIFIC CONFIGURATION
+        const firebaseConfig = {
+            apiKey: "AIzaSyC4HfYMGHXtoInnVrU9dHWf_2rfubQiWks",
+            authDomain: "interview-booking-323c7.firebaseapp.com",
+            projectId: "interview-booking-323c7",
+            storageBucket: "interview-booking-323c7.firebasestorage.app",
+            messagingSenderId: "1069969972566",
+            appId: "1:1069969972566:web:436e53e49f568f088b8af7"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        // Make database functions available to React
+        window.db = db;
+        window.collection = collection;
+        window.addDoc = addDoc;
+        window.onSnapshot = onSnapshot;
+        window.query = query;
+        window.orderBy = orderBy;
+        window.deleteDoc = deleteDoc;
+        window.doc = doc;
+    </script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Settings (Defaults)
+        const initialSettings = {
+            startDate: '2026-02-10',
+            endDate: '2026-02-21',
+            workStartTime: '09:30',
+            workEndTime: '18:30',
+            lunchStartTime: '12:00',
+            lunchEndTime: '13:30',
+            interviewDuration: 60,
+            bufferTime: 15,
+            maxInterviewsPerDay: 4,
+        };
+
+        // Mock Outlook Events (Busy times)
+        const mockOutlookEvents = [
+            { id: 1, subject: 'Meeting', startTime: '2026-02-10T14:30:00', endTime: '2026-02-10T16:00:00' },
+        ];
+
+        function generateTimeSlots(settings, outlookEvents, bookedSlots = []) {
+            const slots = [];
+            const startDate = new Date(settings.startDate);
+            const endDate = new Date(settings.endDate);
+            
+            const dates = [];
+            for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+                if (d.getDay() !== 0 && d.getDay() !== 6) {
+                    dates.push(d.toISOString().split('T')[0]);
+                }
+            }
+            
+            dates.forEach(date => {
+                let currentTime = settings.workStartTime;
+                while (currentTime < settings.workEndTime) {
+                    const [hours, minutes] = currentTime.split(':').map(Number);
+                    const endMinutes = minutes + settings.interviewDuration;
+                    const endHours = hours + Math.floor(endMinutes / 60);
+                    const endTime = `${String(endHours).padStart(2, '0')}:${String(endMinutes % 60).padStart(2, '0')}`;
+                    
+                    const isLunch = currentTime >= settings.lunchStartTime && currentTime < settings.lunchEndTime;
+                    
+                    // Check conflicts
+                    const dateTimeStart = `${date}T${currentTime}:00`;
+                    const dateTimeEnd = `${date}T${endTime}:00`;
+                    const hasOutlookConflict = outlookEvents.some(event => {
+                        return event.startTime.startsWith(date) &&
+                               ((dateTimeStart >= event.startTime && dateTimeStart < event.endTime) ||
+                                (dateTimeEnd > event.startTime && dateTimeEnd <= event.endTime));
+                    });
+
+                    // Check if booked in Firebase
+                    const slotId = `${date}-${currentTime}`;
+                    const isBooked = bookedSlots.some(b => b.timeSlotId === slotId);
+                    
+                    if (!isLunch && endTime <= settings.workEndTime) {
+                        slots.push({
+                            id: slotId,
+                            date,
+                            startTime: currentTime,
+                            endTime,
+                            isAvailable: !hasOutlookConflict && !isBooked,
+                            blockedByOutlook: hasOutlookConflict,
+                            isBooked: isBooked
+                        });
+                    }
+                    
+                    const nextMinutes = minutes + settings.interviewDuration + settings.bufferTime;
+                    const nextHours = hours + Math.floor(nextMinutes / 60);
+                    currentTime = `${String(nextHours).padStart(2, '0')}:${String(nextMinutes % 60).padStart(2, '0')}`;
+                }
+            });
+            return slots;
+        }
+
+        function App() {
+            const [activeTab, setActiveTab] = useState('slots');
+            const [isAdminMode, setIsAdminMode] = useState(false);
+            const [settings, setSettings] = useState(initialSettings);
+            const [bookings, setBookings] = useState([]);
+            const [timeSlots, setTimeSlots] = useState([]);
+            const [showBookingModal, setShowBookingModal] = useState(false);
+            const [selectedSlot, setSelectedSlot] = useState(null);
+            const [bookingForm, setBookingForm] = useState({ intervieweeName: '', intervieweeEmail: '' });
+            const [successMessage, setSuccessMessage] = useState('');
+            const [isSaving, setIsSaving] = useState(false);
+
+            // LISTEN TO FIREBASE
+            useEffect(() => {
+                // Wait a moment for window.db to be ready if script loads slowly
+                const initListener = () => {
+                    if (window.db && window.collection) {
+                        const q = window.query(window.collection(window.db, "bookings"), window.orderBy("createdAt", "desc"));
+                        const unsubscribe = window.onSnapshot(q, (snapshot) => {
+                            const bookingsData = snapshot.docs.map(doc => ({
+                                id: doc.id,
+                                ...doc.data()
+                            }));
+                            setBookings(bookingsData);
+                        });
+                        return unsubscribe;
+                    }
+                };
+                
+                // Try to init immediately, or retry after 500ms if Firebase script is slow
+                let unsub = initListener();
+                if (!unsub) {
+                    setTimeout(() => { unsub = initListener(); }, 500);
+                }
+
+                return () => { if(unsub) unsub(); };
+            }, []);
+
+            // UPDATE SLOTS
+            useEffect(() => {
+                const slots = generateTimeSlots(settings, mockOutlookEvents, bookings);
+                setTimeSlots(slots);
+            }, [settings, bookings]);
+
+            const handleBookSlot = (slot) => {
+                if (!slot.isAvailable) return;
+                setSelectedSlot(slot);
+                setShowBookingModal(true);
+            };
+
+            const submitBooking = async () => {
+                setIsSaving(true);
+                try {
+                    const newBooking = {
+                        intervieweeName: bookingForm.intervieweeName,
+                        intervieweeEmail: bookingForm.intervieweeEmail,
+                        timeSlotId: selectedSlot.id,
+                        timeSlot: {
+                            date: selectedSlot.date,
+                            startTime: selectedSlot.startTime,
+                            endTime: selectedSlot.endTime
+                        },
+                        bookingReference: `BK-${Math.floor(Math.random() * 10000)}`,
+                        createdAt: new Date().toISOString()
+                    };
+
+                    await window.addDoc(window.collection(window.db, "bookings"), newBooking);
+
+                    setSuccessMessage(`Success! Reference: ${newBooking.bookingReference}`);
+                    setShowBookingModal(false);
+                    setBookingForm({ intervieweeName: '', intervieweeEmail: '' });
+                    setTimeout(() => setSuccessMessage(''), 5000);
+                } catch (e) {
+                    console.error("Error adding booking: ", e);
+                    alert("Error saving. Did you create the Database in Firebase Console?");
+                }
+                setIsSaving(false);
+            };
+
+            const cancelBooking = async (bookingId) => {
+                if(!confirm("Are you sure you want to cancel this booking?")) return;
+                try {
+                    await window.deleteDoc(window.doc(window.db, "bookings", bookingId));
+                } catch(e) {
+                    alert("Error deleting");
+                }
+            };
+
+            const formatDate = (dateStr) => {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+            };
+
+            return (
+                <div className="app-container">
+                    <div className="header">
+                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                            <div>
+                                <h1>🗓️ Interview Booking System</h1>
+                                <p>Live Data from Firebase</p>
+                            </div>
+                            <button className="btn" style={{background: isAdminMode ? '#fbbf24' : 'rgba(255,255,255,0.2)', color: 'white'}} onClick={() => setIsAdminMode(!isAdminMode)}>
+                                {isAdminMode ? '🔓 Admin Mode' : '🔒 User View'}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="nav-tabs">
+                        <button className={`nav-tab ${activeTab === 'slots' ? 'active' : ''}`} onClick={() => setActiveTab('slots')}>
+                            📅 Available Slots
+                        </button>
+                        {isAdminMode && (
+                            <button className={`nav-tab ${activeTab === 'bookings' ? 'active' : ''}`} onClick={() => setActiveTab('bookings')}>
+                                📋 Bookings ({bookings.length})
+                            </button>
+                        )}
+                    </div>
+
+                    {successMessage && <div className="alert alert-success">✓ {successMessage}</div>}
+
+                    {activeTab === 'slots' && (
+                        <div className="content-section">
+                            <h2 className="section-title">Select a Time</h2>
+                            {timeSlots.length === 0 ? <p>Loading or no slots available...</p> : 
+                            Object.entries(timeSlots.reduce((acc, slot) => {
+                                (acc[slot.date] = acc[slot.date] || []).push(slot);
+                                return acc;
+                            }, {})).sort().map(([date, slots]) => (
+                                <div key={date} style={{marginBottom: '2rem'}}>
+                                    <h3 style={{marginBottom: '1rem', borderBottom: '2px solid #eee'}}>{formatDate(date)}</h3>
+                                    <div className="slots-grid">
+                                        {slots.map(slot => (
+                                            <div 
+                                                key={slot.id}
+                                                className={`slot-card ${slot.isAvailable ? 'available' : slot.isBooked ? 'booked' : 'blocked'}`}
+                                                onClick={() => handleBookSlot(slot)}
+                                            >
+                                                <div className="slot-time">{slot.startTime} - {slot.endTime}</div>
+                                                <span className={`slot-status ${slot.isAvailable ? 'available' : slot.isBooked ? 'booked' : 'blocked'}`}>
+                                                    {slot.isAvailable ? 'Available' : slot.isBooked ? 'Booked' : 'Busy'}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    {isAdminMode && activeTab === 'bookings' && (
+                        <div className="content-section">
+                            <h2 className="section-title">All Bookings</h2>
+                            <div className="booking-list">
+                                {bookings.map(booking => (
+                                    <div key={booking.id} className="booking-card">
+                                        <div className="booking-header">
+                                            <div className="booking-candidate">{booking.intervieweeName}</div>
+                                            <div className="booking-ref">{booking.bookingReference}</div>
+                                        </div>
+                                        <div className="booking-details">
+                                            <div>{formatDate(booking.timeSlot.date)} @ {booking.timeSlot.startTime}</div>
+                                            <div>{booking.intervieweeEmail}</div>
+                                        </div>
+                                        <div className="booking-actions">
+                                            <button className="btn btn-danger" onClick={() => cancelBooking(booking.id)}>Cancel Booking</button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {showBookingModal && (
+                        <div className="modal-overlay" onClick={() => setShowBookingModal(false)}>
+                            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                                <h2>Confirm Booking</h2>
+                                <p style={{margin: '1rem 0'}}>
+                                    {formatDate(selectedSlot.date)} at {selectedSlot.startTime}
+                                </p>
+                                <div className="form-group">
+                                    <label>Name</label>
+                                    <input className="form-input" value={bookingForm.intervieweeName} onChange={e => setBookingForm({...bookingForm, intervieweeName: e.target.value})} />
+                                </div>
+                                <div className="form-group" style={{marginTop: '1rem'}}>
+                                    <label>Email</label>
+                                    <input className="form-input" value={bookingForm.intervieweeEmail} onChange={e => setBookingForm({...bookingForm, intervieweeEmail: e.target.value})} />
+                                </div>
+                                <div className="modal-actions">
+                                    <button className="btn btn-secondary" onClick={() => setShowBookingModal(false)}>Close</button>
+                                    <button className="btn btn-success" disabled={isSaving || !bookingForm.intervieweeName} onClick={submitBooking}>
+                                        {isSaving ? 'Saving...' : 'Confirm'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
